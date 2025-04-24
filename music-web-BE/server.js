@@ -1,34 +1,42 @@
-// const express = require("express");
-// require("dotenv").config();
-// const cors = require("cors");
-// const path = require("path");
-// const app = express();
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import swaggerUi from 'swagger-ui-express';
+import swaggerJSDoc from 'swagger-jsdoc';
+import musicRoute from "./routes/musicRoute.js";
 
-// const musicRoute = require("./routes/musicRoute");
-// app.use(cors());
-// app.use(express.json());
-// app.use('/api', musicRoute);
-// // app.use(express.static(path.join(__dirname, "public")));
+dotenv.config();
+const app = express();
 
-// app.listen(process.env.PORT, () => {
-//     console.log(`Server is running on port ${process.env.PORT}`);
-// });
+app.use(cors({ 
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+app.use(express.json());
+app.use('/api', musicRoute);
 
-import { CookieJar, Cookie } from 'tough-cookie';
-import FileCookieStore from 'tough-cookie-file-store'; // Use default import
+const swaggerOptions = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Music API',
+      version: '1.0.0',
+      description: 'API for music data',
+    },
+    servers: [
+      {
+        url: 'http://localhost:3001',
+      },
+    ],
+  },
+  apis: ['./routes/*.js'],
+};
 
-// Create a new CookieJar with the FileCookieStore
-const cookieJar = new CookieJar(new FileCookieStore('./cookie.json'));
+const swaggerSpec = swaggerJSDoc(swaggerOptions);
 
-// Create a cookie to be set for Zing MP3
-const cookie = Cookie.parse('foo=bar; Domain=zingmp3.vn; Path=/');
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-// Set the cookie for the specified URL (Zing MP3)
-cookieJar.setCookie(cookie, 'http://zingmp3.vn', function (error, cookie) {
-  if (error) {
-    console.error('Error setting cookie:', error);
-  } else {
-    console.log('Cookie set successfully:', cookie);
-  }
+app.listen(process.env.PORT, () => {
+  console.log(`Server is running on port ${process.env.PORT}`);
 });
-
