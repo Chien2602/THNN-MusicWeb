@@ -1,13 +1,12 @@
 import { Sidebar } from "../components/sidebar"
-import Player from "../components/player"
-import { MainView } from "../components/main-view"
+import HistoryPage from "../components/history/history-view"
 
-export default function HomePage() {
+export default function ArtistPage() {
   return (
     <div className="h-screen bg-black text-white flex flex-col">
       <div className="flex flex-1 overflow-hidden">
         <Sidebar />
-        <MainView />
+        <HistoryPage />
       </div>
     </div>
   )

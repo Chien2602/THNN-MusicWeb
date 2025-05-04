@@ -1,13 +1,12 @@
 import { Sidebar } from "../components/sidebar"
-import Player from "../components/player"
-import { MainView } from "../components/main-view"
+import PlaylistView from "../components/playlist/playlist-view"
 
-export default function HomePage() {
+export default function PlaylistPage() {
   return (
     <div className="h-screen bg-black text-white flex flex-col">
       <div className="flex flex-1 overflow-hidden">
         <Sidebar />
-        <MainView />
+        <PlaylistView />
       </div>
     </div>
   )

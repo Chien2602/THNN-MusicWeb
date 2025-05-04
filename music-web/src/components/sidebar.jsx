@@ -1,10 +1,4 @@
-import {
-  Home,
-  Search,
-  PlusCircle,
-  Heart,
-  History,
-} from "lucide-react";
+import { Home, Search, PlusCircle, Heart, History } from "lucide-react";
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router";
@@ -46,20 +40,34 @@ export function Sidebar() {
         <div className="bg-white/10 p-2 rounded-md group-hover:bg-green-500/20 transition">
           <PlusCircle size={18} />
         </div>
-        <span className="font-medium" onClick={() => {setModalOpen(true)}}>Tạo playlist</span>
+        <span
+          className="font-medium"
+          onClick={() => {
+            setModalOpen(true);
+          }}
+        >
+          Tạo playlist
+        </span>
       </div>
-      <div className="flex items-center gap-2 text-white mb-4 hover:text-green-500 transition cursor-pointer group">
+      <Link to="/favorite" className="flex items-center gap-2 text-white mb-4 hover:text-green-500 transition cursor-pointer group">
         <div className="bg-gradient-to-br from-purple-500/30 to-blue-500/30 p-2 rounded-md group-hover:from-purple-500/40 group-hover:to-blue-500/40 transition">
           <Heart size={18} className="text-purple-300" />
         </div>
         <span className="font-medium">Bài hát đã thích</span>
-      </div>
-      <div className="flex items-center gap-2 text-white hover:text-green-500 transition cursor-pointer group">
+      </Link>
+      <Link to="/history" className="flex items-center gap-2 text-white mb-4 hover:text-green-500 transition cursor-pointer group">
+      <div className="bg-gradient-to-br from-white/30 to-green-500/30 p-2 rounded-md group-hover:from-purple-500/40 group-hover:to-blue-500/40 transition">
+          <History size={18} className="text-purple-300" />
+        </div>
+        <span className="font-medium">Bài hát đã nghe</span>
+      </Link>
+
+      {/* <div className="flex items-center gap-2 text-white hover:text-green-500 transition cursor-pointer group">
         <div className="bg-gradient-to-br from-white/30 to-green-500/30 p-2 rounded-md group-hover:from-purple-500/40 group-hover:to-blue-500/40 transition">
           <History size={18} className="text-purple-300" />
         </div>
         <span className="font-medium">Bài hát đã nghe</span>
-      </div>
+      </div> */}
 
       <div className="mt-6 border-t border-gray-800/30 pt-6 flex-1 overflow-auto">
         <h3 className="text-xs uppercase tracking-wider text-gray-500 mb-4 font-medium">

@@ -1,5 +1,4 @@
 import { Sidebar } from "../components/sidebar"
-import { Player } from "../components/player"
 import { SearchView } from "../components/search-view"
 
 export default function SearchPage() {
@@ -9,7 +8,6 @@ export default function SearchPage() {
         <Sidebar />
         <SearchView />
       </div>
-      <Player />
     </div>
   )
 }
