@@ -47,9 +47,17 @@ const swaggerOptions = {
       version: '1.0.0',
       description: 'API for music data',
     },
+<<<<<<< HEAD
     servers: [{
       url: `http://localhost:${port}`,
     }, ],
+=======
+    servers: [
+      {
+        url: `http://localhost:${process.env.PORT}`,
+      },
+    ],
+>>>>>>> 82cbb61afa4e27faea03b96fe180ea72a66c471d
   },
   apis: ['./routes/*.js'],
 };
