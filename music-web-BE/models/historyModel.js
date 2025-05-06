@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const historySchema = new mongoose.Schema({
     userId: {
@@ -6,16 +6,20 @@ const historySchema = new mongoose.Schema({
         ref: 'user',
         required: true,
     },
-    songId: {
-        type: mongoose.Schema.Types.ObjectId,
+    encodeId: {
+        type: String,
         ref: 'songFavorites',
         required: true,
     },
-    songName: {
+    title: {
         type: String,
         required: true,
     },
-    artistName: {
+    artistNames: {
+        type: String,
+        required: true,
+    },
+    thumbnailM: {
         type: String,
         required: true,
     },
@@ -31,4 +35,4 @@ const historySchema = new mongoose.Schema({
     timestamps: true,
 });
 
-module.exports = mongoose.model('History', historySchema, 'history');
+export default mongoose.model('History', historySchema, 'history');

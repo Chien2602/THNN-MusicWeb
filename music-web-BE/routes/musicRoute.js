@@ -14,7 +14,8 @@ import {
     getListMV,
     getCategoryMV,
     getVideo,
-    getGenre
+    getGenre,
+    getAllArtist
 } from "../controllers/musicController.js";
 
 const router = express.Router();
@@ -293,11 +294,56 @@ router.get("/video", getVideo);
  * /api/genre:
  *   get:
  *     summary: Get music genres
+ *     description: Fetch all available music genres from the ZingMp3 API.
  *     tags: [Music]
  *     responses:
  *       200:
- *         description: Success
+ *         description: A list of music genres.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: string
  */
 router.get("/genre", getGenre);
+
+
+/**
+ * @swagger
+ * /api/artists/all:
+ *   get:
+ *     summary: Get all artists from ZingMp3 by searching from 'a' to 'z'
+ *     description: Fetches a list of all artists.
+ *     tags: [Music]
+ *     responses:
+ *       200:
+ *         description: A list of artists.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: string
+ *                     description: The artist's ID
+ *                   name:
+ *                     type: string
+ *                     description: The artist's name
+ *                   link:
+ *                     type: string
+ *                     description: The link to the artist page
+ *                   thumbnail:
+ *                     type: string
+ *                     description: Thumbnail image URL
+ *       500:
+ *         description: Server error
+ */
+router.get("/artists/all", getAllArtist);
 
 export default router;

@@ -111,12 +111,27 @@ const getGenre = async (req, res) => {
         Cookie: cookieJar,
       },
     });
-    console.log("Request Headers:", response.config.headers);
-
-    res.json(response.data.data.genre);
+    res.json(response?.data?.data?.genre);
   } catch (err) {
     console.error("API Error:", err.message);
     res.status(500).json({ error: "Failed to fetch genre" });
+  }
+};
+
+const getAllArtist = async (req, res) => {
+  try {
+    const allArtists = [];
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+
+    for (const letter of alphabet) {
+      const response = await ZingMp3.search(letter);
+      allArtists.push(...response.data.artists);
+    }
+
+    res.json(allArtists);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error fetching artists" });
   }
 };
 
@@ -136,4 +151,5 @@ export {
   getCategoryMV,
   getVideo,
   getGenre,
+  getAllArtist,
 };

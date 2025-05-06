@@ -1,5 +1,4 @@
 import { Sidebar } from "../components/sidebar"
-import { Player } from "../components/player"
 import { LibraryView } from "../components/library-view"
 
 export default function LibraryPage() {
@@ -9,7 +8,6 @@ export default function LibraryPage() {
         <Sidebar />
         <LibraryView />
       </div>
-      <Player />
     </div>
   )
 }

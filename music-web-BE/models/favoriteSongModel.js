@@ -1,24 +1,16 @@
 // Save Song Favorites
 import mongoose from 'mongoose';
 
-const songSchema = new mongoose.Schema({
+const favoriteSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
     },
-    songId: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-    },
-    songName: {
+    encodeId: {
         type: String,
         required: true,
     },
-    artistName: {
-        type: String,
-        required: true,
-    },
-    albumName: {
+    title: {
         type: String,
         required: true,
     },
@@ -26,7 +18,11 @@ const songSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    url: {
+    artistsNames: {
+        type: String,
+        required: true,
+    },
+    duration: {
         type: String,
         required: true,
     },
@@ -34,4 +30,4 @@ const songSchema = new mongoose.Schema({
     timestamps: true,
 });
 
-module.exports = mongoose.model('Song', songSchema, 'songFavorites');
+export default mongoose.model('Favorites', favoriteSchema, 'songFavorites');
