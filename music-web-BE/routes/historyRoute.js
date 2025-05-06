@@ -155,7 +155,11 @@ router.put("/:id", updateHistory);
  *       404:
  *         description: History not found
  */
+<<<<<<< HEAD
 router.delete("/:userId/:songId", deleteHistory);
+=======
+router.delete("/:id", deleteHistory);
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
 
 /**
  * @swagger

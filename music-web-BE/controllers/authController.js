@@ -76,7 +76,11 @@ const postLogin = async (req, res) => {
       sameSite: "strict",
     });
 
+<<<<<<< HEAD
     res.status(200).json({ accessToken, refreshToken });
+=======
+    res.status(200).json({ accessToken });
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
   } catch (error) {
     res
       .status(500)
@@ -106,7 +110,11 @@ const postRefreshToken = async (req, res) => {
 
       const newAccessToken = generateAccessToken(user);
 
+<<<<<<< HEAD
       res.status(200).json({ accessToken: newAccessToken});
+=======
+      res.status(200).json({ accessToken: newAccessToken });
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
     });
   } catch (error) {
     console.error("Lỗi server:", error.message);

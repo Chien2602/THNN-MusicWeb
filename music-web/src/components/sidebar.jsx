@@ -58,10 +58,24 @@ export function Sidebar() {
       </Link>
       <Link to="/history" className="flex items-center gap-2 text-white mb-4 hover:text-green-500 transition cursor-pointer group">
       <div className="bg-gradient-to-br from-white/30 to-green-500/30 p-2 rounded-md group-hover:from-purple-500/40 group-hover:to-blue-500/40 transition">
+<<<<<<< HEAD
           <History size={18} className="text-purple-300" />
         </div>
         <span className="font-medium">Bài hát đã nghe</span>
       </Link>
+=======
+          <History size={18} className="text-purple-300" />
+        </div>
+        <span className="font-medium">Bài hát đã nghe</span>
+      </Link>
+
+      {/* <div className="flex items-center gap-2 text-white hover:text-green-500 transition cursor-pointer group">
+        <div className="bg-gradient-to-br from-white/30 to-green-500/30 p-2 rounded-md group-hover:from-purple-500/40 group-hover:to-blue-500/40 transition">
+          <History size={18} className="text-purple-300" />
+        </div>
+        <span className="font-medium">Bài hát đã nghe</span>
+      </div> */}
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
 
       <div className="mt-6 border-t border-gray-800/30 pt-6 flex-1 overflow-auto">
         <h3 className="text-xs uppercase tracking-wider text-gray-500 mb-4 font-medium">

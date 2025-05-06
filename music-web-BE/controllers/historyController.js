@@ -150,8 +150,8 @@ const getRecommendedHistory = async (req, res) => {
 
     const topArtist = sortedArtists[0][0];
 
+    // Bước 3: Gọi API lấy bài hát từ nghệ sĩ đó
     const artistInfo = await getInfo(topArtist);
-    const artistId =  artistInfo.id
     const songs = artistInfo.songs || [];
 
     const recommended = songs.slice(0, 5);

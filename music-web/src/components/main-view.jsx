@@ -4,11 +4,18 @@ import { useState, useEffect } from "react"
 import { Heart, MoreHorizontal, Play, ChevronRight, User } from "lucide-react"
 import { usePlayer } from "./player-provider"
 import {useNavigate } from "react-router"
+<<<<<<< HEAD
 import api from "../api/axiosInstance.jsx"
 
 export function MainView() {
   const Navigation = useNavigate()
   const {setCurrentSong, setCurrentPlaylist, setCurrentArtist, setCurrentUser} = usePlayer()
+=======
+
+export function MainView() {
+  const Navigation = useNavigate()
+  const {setCurrentSong, setCurrentPlaylist, setCurrentArtist} = usePlayer()
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
   const [dataGenre, setDataGenre] = useState(null)
@@ -21,13 +28,24 @@ export function MainView() {
   const [expandedTracks, setExpandedTracks] = useState(false)
   const [expandedReleases, setExpandedReleases] = useState(false)
   const [expandedGenres, setExpandedGenres] = useState(false)
+<<<<<<< HEAD
   const [username, setUsername] = useState("")
+=======
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+<<<<<<< HEAD
         const response = await api.get("/genre")
         const data = await response.data
+=======
+        const response = await fetch("http://localhost:3001/api/genre")
+        if (!response.ok) {
+          throw new Error("Network response was not ok")
+        }
+        const data = await response.json()
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
         setDataGenre(data)
       } catch (error) {
         setError(error)
@@ -42,6 +60,7 @@ export function MainView() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+<<<<<<< HEAD
         const token = localStorage.getItem("token");
   
         const response = await fetch("http://localhost:3001/profile", {
@@ -77,6 +96,13 @@ export function MainView() {
       try {
         const response = await api.get("/artists/all")
         const data = await response.data
+=======
+        const response = await fetch("http://localhost:3001/api/artists/all")
+        if (!response.ok) {
+          throw new Error("Network response was not ok")
+        }
+        const data = await response.json()
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
         setDataArtist(data)
       } catch (error) {
         setError(error)
@@ -90,8 +116,16 @@ export function MainView() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+<<<<<<< HEAD
         const response = await api.get("/newReleaseChart")
         const data = await response.data
+=======
+        const response = await fetch("http://localhost:3001/api/newReleaseChart")
+        if (!response.ok) {
+          throw new Error("Network response was not ok")
+        }
+        const data = await response.json()
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
         setDataSongTrending(data.data.items)
       } catch (error) {
         setError(error)
@@ -105,8 +139,16 @@ export function MainView() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+<<<<<<< HEAD
         const response = await api.get("/top100");
         const data = await response.data
+=======
+        const response = await fetch("http://localhost:3001/api/top100")
+        if (!response.ok) {
+          throw new Error("Network response was not ok")
+        }
+        const data = await response.json()
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
         setFeaturedPlaylists(data.data[0].items)
       } catch (error) {
         setError(error)
@@ -120,8 +162,16 @@ export function MainView() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+<<<<<<< HEAD
         const response = await api.get("/home");
         const data = await response.data
+=======
+        const response = await fetch("http://localhost:3001/api/home")
+        if (!response.ok) {
+          throw new Error("Network response was not ok")
+        }
+        const data = await response.json()
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
         setReleaseSongs(data.data.items[3].items.all)
       } catch (error) {
         setError(error)

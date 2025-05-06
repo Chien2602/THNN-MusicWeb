@@ -1,7 +1,12 @@
 import { useState } from "react";
+<<<<<<< HEAD
 import { Link, useNavigate } from "react-router"; // Sửa ở đây
 import { Eye, EyeOff, User, Lock } from "lucide-react";
 import axios from "axios";
+=======
+import { Link, useNavigate } from "react-router";
+import { Eye, EyeOff, User, Lock } from "lucide-react";
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
 
 function Login() {
   const navigate = useNavigate();
@@ -11,6 +16,7 @@ function Login() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+<<<<<<< HEAD
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -47,15 +53,24 @@ function Login() {
         className="w-[400px] bg-white p-8 shadow-2xl rounded-3xl"
         onSubmit={handleSubmit} // 👈 Sửa ở đây
       >
+=======
+  return (
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-[#9ACBD0] to-[#48A6A7]">
+      <form className="w-[400px] bg-white p-8 shadow-2xl rounded-3xl">
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
         <h1 className="text-3xl font-semibold text-center text-gray-700 mb-6">
           Login
         </h1>
 
+<<<<<<< HEAD
         {error && (
           <div className="text-red-500 text-sm mb-4 text-center">{error}</div>
         )}
 
         <div className="flex items-center p-3.5 mb-6 bg-gray-100 rounded-xl transition-all duration-300 focus-within:ring-2 focus-within:ring-[#48A6A7] focus-within:bg-white">
+=======
+        <div className="flex items-center mb-4 p-3 bg-gray-100 rounded-xl">
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
           <User size={24} className="text-gray-500 mr-2" />
           <input
             type="text"
@@ -66,7 +81,11 @@ function Login() {
           />
         </div>
 
+<<<<<<< HEAD
         <div className="flex items-center p-3.5 mb-6 bg-gray-100 rounded-xl transition-all duration-300 focus-within:ring-2 focus-within:ring-[#48A6A7] focus-within:bg-white">
+=======
+        <div className="flex items-center mb-6 p-3 bg-gray-100 rounded-xl">
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
           <Lock size={24} className="text-gray-500 mr-2" />
           <input
             type={showPassword ? "text" : "password"}

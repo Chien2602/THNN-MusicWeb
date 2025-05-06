@@ -3,17 +3,80 @@
 import { useState, useEffect } from "react"
 import { Search, Loader2, Play } from "lucide-react"
 import { Input } from "@/components/ui/input"
+<<<<<<< HEAD
 import { usePlayer } from "./player-provider"
 import {useNavigate } from "react-router"
 import api from "@/api/AxiosInstance";
 
 export function SearchView() {
   const Navigation = useNavigate()
+=======
+
+export function SearchView() {
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
   const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
+<<<<<<< HEAD
   const { setCurrentSong, setCurrentPlaylist, setCurrentArtist } = usePlayer()
+=======
+
+  const genres = [
+    /* giữ nguyên danh sách genres như trước */
+  ]
+
+  useEffect(() => {
+    if (!searchQuery.trim()) {
+      setSearchResults([])
+      return
+    }
+
+    const timer = setTimeout(() => {
+      searchMusic(searchQuery)
+    }, 500)
+
+    return () => clearTimeout(timer)
+  }, [searchQuery])
+
+  const searchMusic = async (query) => {
+    if (!query.trim()) return
+
+    setIsLoading(true)
+    setError(null)
+
+    try {
+      const response = await fetch(`http://localhost:3001/api/search?keyword=${query}`)
+
+      if (!response.ok) {
+        throw new Error("Không thể tìm kiếm. Vui lòng thử lại sau.")
+      }
+
+      const data = await response.json()
+      // Handle all result types
+      const allResults = [
+        ...(data.data.songs || []).map(item => ({ ...item, type: "song" })),
+        ...(data.data.artists || []).map(item => ({ ...item, type: "artist" })),
+        ...(data.data.playlists || []).map(item => ({ ...item, type: "playlist" }))
+      ]
+      setSearchResults(allResults)
+    } catch (err) {
+      console.error("Search error:", err)
+      setError(err.message)
+      setSearchResults([])
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  // Group results by type for better organization
+  const groupedResults = searchResults.reduce((acc, item) => {
+    const type = item.type || "song"
+    if (!acc[type]) acc[type] = []
+    acc[type].push(item)
+    return acc
+  }, {})
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
 
   const genres = [
     /* giữ nguyên danh sách genres như trước */
@@ -115,7 +178,10 @@ export function SearchView() {
                         <div
                           key={item.id}
                           className="bg-gray-800/40 rounded-md p-4 transition-all duration-300 hover:bg-gray-700/60 group cursor-pointer"
+<<<<<<< HEAD
                           onClick={() => handleSongClick(item)}
+=======
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
                         >
                           <div className="relative mb-4">
                             <img
@@ -146,7 +212,10 @@ export function SearchView() {
                         <div
                           key={item.id}
                           className="bg-gray-800/40 rounded-md p-4 transition-all duration-300 hover:bg-gray-700/60 group cursor-pointer text-center"
+<<<<<<< HEAD
                           onClick={() => handleArtistClick(item)}
+=======
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
                         >
                           <div className="relative mb-4 mx-auto">
                             <img
@@ -177,7 +246,10 @@ export function SearchView() {
                         <div
                           key={item.id}
                           className="bg-gray-800/40 rounded-md p-4 transition-all duration-300 hover:bg-gray-700/60 group cursor-pointer"
+<<<<<<< HEAD
                           onClick={() => handlePlaylistClick(item)}
+=======
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
                         >
                           <div className="relative mb-4">
                             <img
@@ -269,7 +341,11 @@ export function SearchView() {
 
         {!searchQuery.trim() && (
           <>
+<<<<<<< HEAD
             <h2 className="text-2xl font-bold mb-6 text-center animate-slide-up">Tìm kiếm bài hát yêu thích</h2>
+=======
+            <h2 className="text-2xl font-bold mb-6 animate-slide-up">Duyệt tất cả</h2>
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
               {genres.map((genre, index) => (
                 <div

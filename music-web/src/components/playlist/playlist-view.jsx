@@ -6,7 +6,11 @@ import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
 
 export default function PlaylistPage() {
+<<<<<<< HEAD
   const { currentPlaylist, currentTrack, isPlaying, togglePlayPause, playTrack, setCurrentSong } = usePlayer()
+=======
+  const { currentPlaylist, currentTrack, isPlaying, togglePlayPause, playTrack } = usePlayer()
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
   const [playlistData, setPlaylistData] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -34,6 +38,13 @@ export default function PlaylistPage() {
     }
   }, [currentPlaylist])
 
+<<<<<<< HEAD
+=======
+  const handlePlaySong = (song) => {
+    playTrack(song)
+  }
+
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
   const formatDuration = (seconds) => {
     const minutes = Math.floor(seconds / 60)
     const remainingSeconds = ("0" + (seconds % 60)).slice(-2)
@@ -61,10 +72,13 @@ export default function PlaylistPage() {
     )
   }
 
+<<<<<<< HEAD
   const handleSongClick = (song) => {
     setCurrentSong(song)
   }
 
+=======
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
   return (
     <main className="flex-1 overflow-y-auto pb-24">
       <div className="bg-gradient-to-b from-emerald-900/80 to-zinc-900/90 p-6 md:p-8">
@@ -167,7 +181,11 @@ export default function PlaylistPage() {
                       "group border-b border-zinc-800/50 hover:bg-zinc-800/50 transition-colors",
                       currentTrack?.encodeId === song.encodeId && "bg-zinc-800/70",
                     )}
+<<<<<<< HEAD
                     onClick={() => handleSongClick(song)}
+=======
+                    onClick={() => handlePlaySong(song)}
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
                   >
                     <td className="px-4 py-3 w-12">
                       <div className="relative w-5 h-5 flex items-center justify-center">

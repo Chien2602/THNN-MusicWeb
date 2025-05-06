@@ -1,7 +1,11 @@
 import { usePlayer } from "../player-provider"
 
 export function ArtistHeader() {
+<<<<<<< HEAD
   const { currentArtist, setCurrentSong } = usePlayer()
+=======
+  const { currentArtist } = usePlayer()
+>>>>>>> 64422df33bb43e306eb18bc7d1b6c6a9592c95d6
   return (
     <div className="relative pt-16">
       <div className="absolute inset-0 z-0 h-[400px] overflow-hidden">
